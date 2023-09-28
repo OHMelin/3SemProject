@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ClassLibraryModelLayer.Flight>
+@{
+    ViewData["Title"] = "FlightList";
+}
+
+<section class="container">
+    <center>
+    <div class="search-flight:">
+        <h1>Flight list</h1>
+        <p>Search flight</p>
+        <input style="width:500px" type="text" placeholder="Search.." id="search-input" onkeyup="searchFlight()">
+    </div>
+    </center>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Destination.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepartureDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArrivalDate)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Price.Price)
+                </th>
+                <th>
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Destination.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartureDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrivalDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price.Price)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Book", "FlightSeatBooking", new { planeID = item.PlaneId, flightID = item.FlightId})
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <script>
+        var flights = @Html.Raw(Json.Serialize(Model));
+    </script>
+<script src="~/js/SearchScript.js">
+</script>
+
+</section>
+

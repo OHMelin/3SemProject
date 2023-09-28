@@ -1,0 +1,54 @@
+﻿@model ClassLibraryModelLayer.Booking
+
+@{
+	ViewData["Title"] = "CreateBooking";
+}
+<section class="container">
+	<h1>Create booking</h1>
+
+	<h4>Booking</h4>
+	<hr />
+	<div class="row">
+		<div class="col-md-4">
+			<form asp-action="CreateBooking">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-group">
+					<label asp-for="AccountID" class="control-label"></label>
+					<input asp-for="AccountID" class="form-control" value="@Context.User.Claims.FirstOrDefault((claim)=> claim.Type == "id")?.Value" readonly />
+					<span asp-validation-for="AccountID" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="FlightID" class="control-label"></label>
+					<input asp-for="FlightID" class="form-control" value="@Model.FlightID" readonly />
+					<span asp-validation-for="FlightID" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="ticket.PersonID" class="control-label"></label>
+					<input asp-for="ticket.PersonID" class="form-control" value="3" readonly />
+					<span asp-validation-for="ticket.PersonID" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="ticket.SeatID" class="control-label"></label>
+					<input asp-for="ticket.SeatID" class="form-control" value="@Model.ticket.SeatID" readonly />
+					<span asp-validation-for="ticket.SeatID" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Confirm Booking" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div>
+		<a onclick="history.go(-1);" href="#">Back</a><br />
+		<!--	<a asp-action="Index">Back to List</a>-->
+	</div>
+</section>
+
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
+

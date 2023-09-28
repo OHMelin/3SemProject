@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ClassLibraryModelLayer.Ticket>
+
+@{
+	ViewData["Title"] = "ViewTickets";
+}
+
+<section class="container">
+	<h1>Your tickets</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.TicketID)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.PersonID)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.SeatID)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.BookingID)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.seat.SeatRow)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.seat.SeatColumn)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.seat.PlaneModelID)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.TicketID)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.PersonID)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.SeatID)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.BookingID)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.seat.SeatRow)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.seat.SeatColumn)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.seat.PlaneModelID)
+					</td>
+					<td>
+						<a href="">Details</a> | <a href="">Cancel</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</section>

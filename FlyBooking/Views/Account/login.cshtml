@@ -1,0 +1,21 @@
+﻿@model ClassLibraryModelLayer.Account
+<head>
+	<link rel="stylesheet" href="~/css/login.css"/>
+</head>
+
+<div class="form-container container" id="test">
+	<form asp-action="login" id="login">
+		<!-- Username -->
+		<h3>Username</h3>
+		<input asp-for="UserName" placeholder="MitUsername"/><br />
+		<span asp-validation-for="UserName"></span>
+		<br /><br />
+		<!-- Password -->
+		<h3>Password</h3>
+		<input asp-for="Password" placeholder="MitPassword123"/><br />
+		<span asp-validation-for="Password"></span>
+		<br /><br />
+		<input type="submit" value="Login" id="login-button" />
+		<br /><br /><a class="link-no-blue" asp-area="" asp-controller="Account" asp-action="CreateNewAccount"><i>Not signed up? Click here!</i></a>
+	</form>
+</div>

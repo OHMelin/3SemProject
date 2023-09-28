@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - FlyBooking</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/footer.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/FlyBooking.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+	<header class="cool-header-design">
+		<div class="container">
+			<a class="cool-nav-item-logo" asp-area="" asp-controller="Home" asp-action="Index">
+				<div class="logo"></div>
+			</a>
+
+			@if (Context.User.Identity.IsAuthenticated)
+			{
+				<a class="cool-nav-item right" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+			}
+			else
+			{
+				<a class="cool-nav-item right" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+			}
+			@if (Context.User.Identity.IsAuthenticated)
+			{
+				<a class="cool-nav-item right" asp-area="" asp-controller="Account" asp-action="PersonalInfo">@User.Identity.Name</a>
+			}
+
+			<a class="cool-nav-item right" asp-area="" asp-controller="Flight" asp-action="FlightList">View Flights</a>
+		</div>
+	</header>
+
+	<div class=""> <!-- Could have the container class, but that'd prevent the hero image on index -->
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="cool-footer-design">
+		<div class="container">
+			&copy; 2023 - FlyBooking</a>
+		</div>
+	</footer>
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

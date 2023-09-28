@@ -1,0 +1,53 @@
+﻿.cool-header-design {
+    background-color: #03254c;
+    height: 100px;
+}
+
+.cool-nav-item {
+    text-decoration: none;
+    list-style: none;
+    display: inline-block;
+    background-color: #e0e0e0;
+    border-radius: 500px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: black;
+}
+.cool-nav-item:hover {
+    background-color: #fff;
+    text-decoration: none;
+    color: black;
+}
+.logo {
+    width: 25px;
+    height: 25px;
+    background: url(/images/logo.svg);
+}
+.cool-nav-item-logo {
+    text-decoration: none;
+    list-style: none;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+
+.cool-nav-link:hover {
+    color: black;
+}

@@ -1,0 +1,35 @@
+﻿@model ClassLibraryModelLayer.Account
+
+<section class="container">
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.AccountId)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.AccountId)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.PersonId)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.PersonId)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.UserName)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.UserName)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Role)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Role)
+		</dd>
+	</dl>
+
+	<a class="" asp-area="" asp-controller="Booking" asp-action="ViewBookings">View Bookings</a>
+	<a class="" asp-area="" asp-controller="Account" asp-action="ViewTickets">View Tickets</a>
+</section>
+
+

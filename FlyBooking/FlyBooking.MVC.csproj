@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\js\SearchScript.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\SearchScript.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\BusinessLogicLayer\FlyBooking.APIClient.csproj" />
+    	<ProjectReference Include="..\ClassLibraryModelLayer\FlyBooking.Model.csproj" />
+    	<ProjectReference Include="..\DataAccessLayer\FlyBooking.DAL.csproj" />
+	<ProjectReference Include="..\FlyBookingAPI\FlyBooking.API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\StyleSheets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\SearchScript.js" />
+  </ItemGroup>
+
+</Project>

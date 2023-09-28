@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ClassLibraryModelLayer.Seat>
+@{
+	int PlaneModelID = Convert.ToInt32(ViewContext.HttpContext.Request.Query["PlaneID"]);
+	var flightID = ViewContext.HttpContext.Request.Query["flightID"];
+	int? highestSeatRowNumber = 0;
+	int? highestSeatColumnNumber = 0;
+	int seatNumber = 1;
+}
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - FlyBooking</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/seats.css" asp-append-version="true" />
+</head>
+<section class="container">
+	<div class="title-container">
+		<h1 class="title">Select your seat</h1>
+	</div>
+	
+	<div class="seat-container">
+		@foreach (var item in Model)
+		{
+			if (item.SeatRow > highestSeatRowNumber)
+			{
+				highestSeatRowNumber = item.SeatRow;
+			}
+			if (Convert.ToInt32(item.SeatColumn) > highestSeatColumnNumber)
+			{
+				highestSeatColumnNumber = Convert.ToInt32(item.SeatColumn);
+			}
+		}
+		@for (int i = 0; i < highestSeatRowNumber; i++)
+		{
+			<div style="padding:0px;"></div>
+			
+			for (int j = 0; j < highestSeatColumnNumber; j++)
+			{	
+				if (Model.ToList()[seatNumber -1].IsBooked != true )
+				{
+					<button id="seat-@seatNumber" class="seat" onclick="getFocusedButtonSeatNumber()" value="@Model.ToList()[seatNumber-1].SeatID">@seatNumber</button>
+				}
+				else
+				{
+					<button id="seat-@seatNumber" class="seat seat-taken" value="@Model.ToList()[seatNumber-1].SeatID" disabled>@seatNumber</button>
+				}
+				seatNumber++;
+			}
+		}
+	</div>
+
+	<div id="center-button" class="center-button" data-plane-id="@PlaneModelID" data-flight-id="@flightID">
+		<button class="book-button" onclick="sendForm()">
+			Book
+		</button>
+	</div>
+</section>
+<script src="~/js/SeatBooking.js">
+</script>

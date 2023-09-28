@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ClassLibraryModelLayer.Booking>
+
+@{
+	ViewData["Title"] = "ViewBookings";
+}
+<section class="container">
+	<h1>Your bookings</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.BookingID)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.BookingDate)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.PaymentID)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.AccountID)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.FlightID)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.BookingID)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.BookingDate)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.PaymentID)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.AccountID)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.FlightID)
+					</td>
+					<td>
+						@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</section>
+

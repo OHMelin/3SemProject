@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - FlyBooking</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/footer.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+</head>
+
+<section id="hero" class="text-center hero-container">
+    <h1 class="header-text">Aalborg flybooking</h1>
+    <h4>Book din næste rejse i dag!</h4><br />
+	<a class="hero-button" asp-area="" asp-controller="Flight" asp-action="FlightList">View Flights</a>
+</section>
+
+<section id="information" class="container">
+	<h2>Information</h2>
+	<p>Lorem ipsum</p>
+</section>

@@ -1,0 +1,47 @@
+﻿.title-container {
+    text-align: center;
+}
+.seat-container {
+    text-align: center;
+    margin-top: 50px;
+}
+.seat {
+    display: inline-block;
+    background-color: green;
+    border-radius: 10px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    margin: 2px;
+    border: none;
+}
+.seat:hover {
+    filter: brightness(85%);
+}
+.seat:focus {
+    background-color: lawngreen;
+}
+.seat-taken {
+    background-color: red;
+}
+
+.center-button {
+    margin-top: 50px;
+    text-align: center;
+}
+.book-button {
+    text-shadow: none;
+    text-decoration: none;
+    color: black;
+    border-radius: 500px;
+    width: 200px;
+    background-color: #e0e0e0;
+    padding: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: none;
+}
+.book-button:hover {
+    color: black;
+    filter: brightness(85%);
+}
