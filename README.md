@@ -1,2 +1,2 @@
 # FlyBooking
-test
+My third semester project, a fictional fly booking system for Aalborg airport.
